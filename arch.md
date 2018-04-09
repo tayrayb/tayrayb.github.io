@@ -29,9 +29,9 @@
 
 ![](images/Virtualbox 5.png)
 
-This is a typical partition setup, it is best to have a separate boot partition from the root. With applying partitions, select **New** and type in the size you want, the recommended size is 500M for the first boot partition. So just type in `500M` and press enter and set it as primary. The next partition is for swap, swap is basically temp storage for when memory runs out. Kind of like a pagefile in Windows. I recommend having around `2G` for the second partition and apply it. Then select **Type** then select **82 Linux Swap/Solaris**. The final partition is the root partition. Just press **New** and fill in the rest of the drive by just pressing Enter right through. Then simply hit the **Write** selection to write this partition table. Then quit out. Also, take note of your partition numbers so we can format them accordingly.
+This is a typical partition setup for a standard boot, I will cover UEFI [here](archefi.md), it is best to have a separate boot partition from the root. With applying partitions, select **New** and type in the size you want, the recommended size is 500M for the first boot partition. So just type in `500M` and press enter and set it as primary. The next partition is for swap, swap is basically temp storage for when memory runs out. Kind of like a pagefile in Windows. I recommend having around `2G` for the second partition and apply it. Then select **Type** then select **82 Linux Swap/Solaris**. The final partition is the root partition. Just press **New** and fill in the rest of the drive by just pressing Enter right through. Then simply hit the **Write** selection to write this partition table. Then quit out. Also, take note of your partition numbers so we can format them accordingly.
 
-* Now we come to formatting the partitions on the drive. The simplest and most reliable being EXT4. You can view all formats by typing `mkfs.` then hitting the TAB key. It will list all available `mkfs` commands.
+* Now we come to formatting the partitions on the drive. The simplest and most reliable being EXT4. You can view all formats by typing `mkfs.` then hitting the TAB key. It will list all available `mkfs` commands. This small trick applies to all commands and directories, pressing TAB speeds up a lot of boilerplate typing.
 
 ![](images/Virtualbox 6.png)
 
@@ -78,3 +78,65 @@ This generates the FSTAB(FileSystemTABle) for partitions to be mounted on boot.
 ```
 arch-chroot /mnt
 ```
+
+* Now that we're chrooted in, we need to set our locales. Run this command:
+
+```
+nano /etc/locale.gen
+```
+And then uncomment out your locale, most being `en_US.UTF-8`, save then exit by pressing `ctrl-x` and run:
+```
+locale-gen
+```
+Next is to write a `locale.conf` file. Run:
+```
+nano /etc/locale.conf
+```
+And in this file, type in `LANG=en_US.UTF-8`, save and exit.
+
+* Next up is our hostname, just similar to the commands above, run:
+
+```
+nano /etc/hostname
+```
+Type in what you want for a hostname, which is basically the computer name, save and exit.
+
+* Now we can install our bootloader and network utility. Run:
+
+```
+pacman -S grub networkmanager
+```
+Then we need to enable the Network Manger so it starts on boot, run:
+```
+systemctl enable NetworkManager
+```
+Now we can install the bootloader, simply run:
+```
+grub-install /dev/sdX
+```
+Note that to replace `X` with your drive letter. E.G `/dev/sda`
+
+We're almost done, don't panic. Now just run:
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+That generated your Grub config file to boot your Arch install. Next thing is to run:
+```
+passwd
+```
+This sets the root users password. Type in a password and press enter.
+
+And that completes the install. Enjoy your new Arch Linux. Run:
+```
+exit
+```
+This exits out of the chroot. Then run:
+```
+umount -R /mnt
+```
+To unmount the disk, then simply type in:
+```
+reboot
+```
+
+Now I will cover installing a desktop environment [here](archdesktop.md)
