@@ -6,7 +6,7 @@
 ---
 1. First things first, we need an install environment. For this, Virtualbox will suffice.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" height=150 align=middle>
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" height=150 align=middle/>
 
 2. Now, install Virtualbox and Create your VM.
 
