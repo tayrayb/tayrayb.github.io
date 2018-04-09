@@ -48,6 +48,7 @@ mkfs.ext4 /dev/sda3
 ```
 
 * Next is mounting the partitions. So simply type this:
+
 ```
 mount /dev/sda3 /mnt
 ```
@@ -62,6 +63,7 @@ mount /dev/sda1 /mnt/boot
 Success! We now have mounted our drive and ready for installing Arch to it.
 
 * Installing Arch isnt so hard after all, is it? Simply now run:
+
 ```
 pacstrap /mnt base
 ```
@@ -72,6 +74,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 This generates the FSTAB(FileSystemTABle) for partitions to be mounted on boot.
 
 * Now we can `chroot` into the new install of Arch. Simply run:
+
 ```
 arch-chroot /mnt
 ```
