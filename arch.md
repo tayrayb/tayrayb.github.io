@@ -3,10 +3,9 @@
 ## Welcome to my guide on installing the best Linux distro FOSS can buy. Lets get started!
 * [Arch Linux Download](https://www.archlinux.org/download/)
 * [Virtualbox Download](https://www.virtualbox.org/wiki/Downloads)
----
-1. First things first, we need an install environment. For this, Virtualbox will suffice.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" height=150 align=middle/>
+
+1. First things first, we need an install environment. For this, Virtualbox will suffice.
 
 2. Now, install Virtualbox and Create your VM.
 
