@@ -1,8 +1,8 @@
 <link href="/css/style.css" rel="stylesheet">
 
-# Tayray's cave
+<span style="color:white"># Tayray's cave
 ---
-Welcome to my cave. Where I just share things of interest.
+Welcome to my cave. Where I just share things of interest.</span>
 
 | * [Tayray's Arch Install Guide](arch.md) | * [Arch EFI Partition Setup Guide](archefi.md) | * [Tayray's Arch Software Install](archdesktop.md) |
 
