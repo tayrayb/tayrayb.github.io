@@ -1,3 +1,5 @@
+<link href="/css/style.css" rel="stylesheet"></link>
+
 # Tayray's cave
 ---
 Welcome to my cave. Where I just share things of interest.
