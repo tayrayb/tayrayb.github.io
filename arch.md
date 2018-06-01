@@ -1,3 +1,5 @@
+<link href="/css/style.css" rel="stylesheet">
+
 [Home](index.md)
 
 ## Welcome to my guide on installing the best Linux distro FOSS can buy. Lets get started!

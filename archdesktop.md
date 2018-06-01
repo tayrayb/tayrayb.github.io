@@ -1,3 +1,5 @@
+<link href="/css/style.css" rel="stylesheet">
+
 | [Home](index.md) | [Arch Install Guide](arch.md) |
 * So you want to install a desktop environment, I trust you have booted into your fresh Arch Install. Lets get started.
 * Now what do you want? Cinnamon, Gnome? Or you a hardcore Openbox fan?
